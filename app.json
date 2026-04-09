@@ -7,29 +7,26 @@
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff",
-        "permissions": [
-          "ACCESS_FINE_LOCATION",
-          "ACCESS_COARSE_LOCATION",
-          "BLUETOOTH",
-          "BLUETOOTH_ADMIN",
-          "BLUETOOTH_CONNECT",
-          "BLUETOOTH_SCAN",
-          "ACCESS_FINE_LOCATION",
-          "ACCESS_COARSE_LOCATION",
-          "BLUETOOTH",
-          "BLUETOOTH_ADMIN",
-          "BLUETOOTH_CONNECT",
-          "BLUETOOTH_SCAN"
-        ]
+        "backgroundColor": "#ffffff"
       },
+      "googleMapsApiKey": "DUMMY_KEY_TO_PREVENT_CRASH",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "BLUETOOTH",
+        "BLUETOOTH_ADMIN",
+        "BLUETOOTH_CONNECT",
+        "BLUETOOTH_SCAN",
+        "CAMERA",
+        "RECORD_AUDIO"
+      ],
       "package": "com.anonymous.geosearchapp"
     },
     "web": {
@@ -38,6 +35,7 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      "./plugins/withGoogleMapsKey",
       "expo-router",
       [
         "expo-splash-screen",
@@ -46,6 +44,19 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "NavVisor needs access to your camera for hazard detection.",
+          "enableMicrophonePermission": false
+        }
+      ],
+      [
+        "react-native-fast-tflite",
+        {
+          "enableAndroidGpuLibraries": true
         }
       ]
     ],
